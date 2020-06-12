@@ -1,0 +1,59 @@
+.cards-wraper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 40%;
+    margin: auto;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1em;
+}
+
+mat-card-header {
+    width: 100%;
+    height: 100%;
+}
+
+mat-card-header img {
+    width: 100%;
+    margin: auto;  
+}
+
+mat-card-content {
+    display: flex;
+    justify-content: center;
+}
+
+.election-wraper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.election-wraper img {
+    height: 2em;
+}
+
+.election-wraper span {
+    padding-top: 0.4em;
+    font-weight: bold;
+}
+
+@media (max-width: 415px) {
+    .cards-wraper {
+        width: 90%;
+    }
+
+    mat-card-content {
+        justify-content: space-around;
+    }
+
+    mat-card-header img {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+}

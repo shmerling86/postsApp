@@ -1,0 +1,12 @@
+<div class="cards-wraper">
+  <mat-card  *ngFor="let post of posts | slice:0:1; let i=index">
+    <mat-card-header>
+      <img *ngIf="post && post.imagePath" mat-card-image [src]="post.imagePath" [alt]="post.title">
+    </mat-card-header>
+    <mat-card-content>
+      <div class="election-wraper" *ngIf="post && post.votes.length > 0">
+        <span>Users votes: {{ post.votes.length }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

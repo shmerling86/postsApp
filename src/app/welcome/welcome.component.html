@@ -1,0 +1,5 @@
+<div class="welcome-image"></div>
+<div class="btn-wrap" mat-dialog-actions>
+    <a mat-raised-button class="submit-btn" *ngIf="authService.userName === null" (click)='getStarted()'>Welcome</a>
+    <a mat-raised-button class="submit-btn" *ngIf="authService.userName !== null" routerLink="/list" >Get Started</a>
+</div>

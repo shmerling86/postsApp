@@ -1,0 +1,78 @@
+<div class="cards-wraper">
+    <mat-card *ngFor="let post of posts">
+        <button *ngIf="isLogin" mat-icon-button class="mat-card-button" [matMenuTriggerFor]="menu">
+            <img src="https://img.icons8.com/material-rounded/24/000000/menu-2.png" />
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item color="primary" *ngIf="isLogin" (click)="onKeep(post._id)">
+                <div class="btn-wrapper">
+                    <img src="https://img.icons8.com/officel/100/000000/pin.png" />
+                    <span>Keep</span>
+                </div>
+            </button>
+            <button mat-menu-item color="primary" *ngIf="isLogin" (click)="onVote(post._id)">
+                <div class="btn-wrapper">
+                    <img src="https://img.icons8.com/cotton/100/000000/facebook-like--v1.png" />
+                    <span>Vote</span>
+                </div>
+            </button>
+            <button mat-menu-item color="primary" (click)="onEdit(post._id)"
+                *ngIf="isLogin && post.creator === authService.getUserId()">
+                <div class="btn-wrapper">
+                    <img src="https://img.icons8.com/office/100/000000/pencil-tip.png" />
+                    <span>Edit</span>
+                </div>
+            </button>
+            <button mat-menu-item color="warn" (click)="onDelete(post._id)"
+                *ngIf="isLogin && post.creator === authService.getUserId()">
+                <div class="btn-wrapper">
+                    <img src="https://img.icons8.com/plasticine/100/000000/delete-open-envelope.png" />
+                    <span [style.color]='"red"'>Delete</span>
+                </div>
+            </button>
+        </mat-menu>
+        <mat-card-header>
+            <img mat-card-image *ngIf="post && post.profileImage" [src]="post.profileImage">
+            <mat-card-title *ngIf="post && post.title">{{ post.title }}</mat-card-title>
+            <mat-card-subtitle *ngIf="post && !post.lastModified">
+                Created: {{ post.date | date :'short' }}
+            </mat-card-subtitle>
+            <mat-card-subtitle *ngIf="post && post.lastModified">
+                Updated: {{ post.lastModified | date :'short' }}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <img *ngIf="post && post.imagePath" mat-card-image [src]="post.imagePath" [alt]="post.title">
+        <mat-card-content class="description-votes-content">
+            <mat-panel-description>
+                {{ post.description }}
+            </mat-panel-description>
+            <div class="election-wraper" *ngIf="post && post.votes.length > 0">
+                <img src="https://img.icons8.com/plasticine/100/000000/elections.png" />
+                <span>{{ post.votes.length }}</span>
+            </div>
+        </mat-card-content>
+            <mat-card-content *ngFor="let comment of post.comments" class="comment-content">
+                <div class="img-comment-auther">
+                    <img mat-card-image [src]="comment.userProfileImage">
+                </div>
+                <div class="data-comment-auther">
+                    <span class="creator">{{ comment.creator }}</span>
+                    <span class="content"> {{ comment.content }}</span>
+                    <p class="date">{{ comment.date | date :'short'  }}</p>
+                </div>
+            </mat-card-content>
+        <mat-card-content class="form-content" *ngIf="isLogin">
+            <div class="img-comment-auther">
+                <img mat-card-image [src]="authService.userProfileImage">
+            </div>
+            <form [formGroup]="addCommentForm" (ngSubmit)="onAddComment(addCommentForm, post._id)">
+                <input matInput type="text" placeholder="Write a comment..." formControlName="comment">
+                <button mat-raised-button class="submit-btn" [disabled]="addCommentForm.invalid"
+                    type="submit">Post</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <div class="add-btn-wrapper" *ngIf="isLogin" (click)='onAdd()'>
+        <img src="https://img.icons8.com/doodle/48/000000/add.png" />
+    </div>
+</div>

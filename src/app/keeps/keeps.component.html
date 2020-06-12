@@ -1,0 +1,23 @@
+<div class="cards-wrapper" *ngIf="!isLogin">
+  <p>Please login first</p>
+</div>
+
+<div class="cards-wrapper" *ngIf="isLogin && keeps.length == 0">
+  <p>No keeping yet</p>
+</div>
+
+<div class="cards-wrapper" *ngIf="isLogin && !isLoading && keeps.length > 0">
+  <mat-card *ngFor="let keep of keeps">
+    <mat-card-content>
+      <div class="unpin-wrap" (click)="unKeepPost(keep._id)">
+        <img src="https://img.icons8.com/office/100/000000/unpin.png" />
+      </div>
+    </mat-card-content>
+    <mat-card-header>
+      <img *ngIf="keep && keep.imagePath" mat-card-image [src]="keep.imagePath" [alt]="keep.title">
+    </mat-card-header>
+    <mat-panel-description>
+      {{ keep.title }}
+    </mat-panel-description>
+  </mat-card>
+</div>

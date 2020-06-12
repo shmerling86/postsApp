@@ -1,0 +1,23 @@
+.welcome-image {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 32%;
+    height: 33%;
+    margin: 1em auto;
+    background-image: url(https://image.freepik.com/free-vector/business-team-are-holding-sign-welcome_51635-583.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 415px) {
+    .welcome-image{
+        background-size: cover;
+        margin: 0 auto 1em auto;
+    }
+}

@@ -1,0 +1,136 @@
+.cards-wraper {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 1em auto;
+}
+
+.mat-card-button {
+    position: absolute;
+    right: 0;
+}
+
+.description-votes-content,
+.form-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.data-comment-auther{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.img-comment-auther{
+    width: 5%;
+}
+
+.img-comment-auther img{
+    width: 2em;
+    height: 2em;
+    margin: 0;
+    border-radius: 50%;
+}
+
+.comment-content div .creator{
+    font-weight: bold;
+    padding: 0.2em;
+}
+
+.comment-content div .content{
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.comment-content div .date{
+    font-size: 0.8em;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.form-content form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-content form input {
+    padding: 0.6em;
+    width: 100%;
+    border: none;
+}
+
+.mat-card-header {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.mat-card-header img {
+    width: 3em;
+    height: 3em;
+    padding: 0 1em;
+    border-radius: 50%;
+}
+
+.header-profile-options button img {
+    width: 2em;
+    height: 2em;
+}
+
+.add-btn-wrapper {
+    position: fixed;
+    bottom: 1em;
+    right: 30%;
+    width: 2em;
+    height: 2em;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-wrapper img {
+    height: 1.7em;
+    width: 1.7em;
+    padding: 0.7em 0.7em 0 0;
+}
+
+.election-wraper {
+    display: flex;
+}
+
+.election-wraper img {
+    height: 2em;
+}
+
+.election-wraper span {
+    padding-top: 0.4em;
+}
+
+@media (max-width: 415px) {
+    mat-card {
+        width: 85%;
+    }
+
+    .add-btn-wrapper {
+        right: 6%;
+    }
+
+    .img-comment-auther{
+        width: 10%;
+    }
+}

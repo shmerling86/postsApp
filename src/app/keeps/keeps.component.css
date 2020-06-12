@@ -1,0 +1,53 @@
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 67%;
+    margin: auto;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 1em;
+}
+
+mat-card-header img {
+    height: 18em;
+}
+
+mat-card-content {
+    display: flex;
+    justify-content: flex-end;
+}
+
+mat-panel-description {
+    font-size: 0.8em;
+    padding: 1em 0 0 0;
+}
+
+.unpin-wrap {
+    cursor: pointer;
+}
+
+.unpin-wrap img {
+    width: 1.4em;
+    height: 1.4em;
+}
+
+@media (max-width: 415px) {
+    .cards-wrapper {
+        width: 100%;
+    }
+
+    mat-card {
+        width: 100%;
+    }
+
+    mat-card-header img {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+}

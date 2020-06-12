@@ -1,0 +1,56 @@
+*:focus {
+    outline: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background: rgb(239, 124, 86);
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-error {
+    font-size: 0.7em;
+}
+
+.submit-btn {
+    background: rgb(93, 68, 248);
+    color: #fff;
+}
+
+.mat-tab-header {
+    border: none;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    display: none;
+}
+
+.mat-tab-labels {
+    justify-content: center;
+}
+
+app-top-rated .mat-card-header-text,
+app-keeps .mat-card-header-text {
+    margin: 0;
+}
+
+@media (max-width: 415px) {
+    .mat-tab-header .mat-tab-header-pagination {
+        display: none;
+    }
+
+    app-top-rated mat-panel-description {
+        display: none;
+    }
+
+    .mat-tab-label {
+        min-width: 50px!important;
+        padding: 0 1em!important;
+    }
+}

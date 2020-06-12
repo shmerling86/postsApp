@@ -1,0 +1,23 @@
+mat-card {
+    width: 20em;
+    margin: 1em auto;
+}
+
+p{
+    margin-top: 0;
+}
+
+@media (max-width: 415px) {
+    mat-card {
+        width: 13em;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-dialog-actions {
+    justify-content: center;
+}

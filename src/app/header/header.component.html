@@ -1,0 +1,91 @@
+<mat-toolbar color="primary">
+    <div class="nav-btn">
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <a class="tab-wrapper" routerLink="/">
+                        <span class="tab-inside-wrapper">
+                            <img src="https://img.icons8.com/offices/100/000000/home-page.png" />
+                            <span>Home</span>
+                        </span>
+                    </a>
+                </ng-template>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <a class="tab-wrapper" routerLink="/list">
+                        <span class="tab-inside-wrapper">
+                            <img src="https://img.icons8.com/color/100/000000/talk-female.png" />
+                            <span>All Feeds</span>
+                        </span>
+                    </a>
+                </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <a class="tab-wrapper" routerLink="/keeps">
+                        <span class="tab-inside-wrapper">
+                            <img src="https://img.icons8.com/plasticine/100/000000/favorite-cart.png" />
+                            <span>My Keeps</span>
+                        </span>
+                    </a>
+                </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <a class="tab-wrapper" routerLink="/top">
+                        <span class="tab-inside-wrapper">
+                            <img src="https://img.icons8.com/office/100/000000/leaderboard.png" />
+                            <span>Top Rated</span>
+                        </span>
+                    </a>
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <div class="toolbar-btns">
+            <div class="user">
+                <img *ngIf="authService.userProfileImage" [src]="authService.userProfileImage">
+                <img *ngIf="authService.userProfileImage === null"
+                    src="https://bim-and-beyond.eu/wp-content/uploads/2018/08/unknown.png">
+                <span *ngIf="authService.userName">{{ authService.userName }}</span>
+                <!-- <mat-divider [vertical]="true"></mat-divider> -->
+            </div>
+        </div>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div class="background-menu"></div>
+        <span *ngIf="authService.userName" class="welcome"> Welcome {{ authService.userName }}</span>
+        <hr>
+        <button (click)="onSignup()" mat-menu-item *ngIf="!isLogin && router.url !== '/register'">
+            <div class="btn-wrapper">
+                <img src="https://img.icons8.com/officel/100/000000/edit-user-male.png" />
+                <span>Signup</span>
+            </div>
+        </button>
+        <button (click)='onLogin()' mat-menu-item *ngIf="!isLogin && router.url !== '/auth'">
+            <div class="btn-wrapper">
+                <img src="https://img.icons8.com/color/100/000000/forgot-password.png" />
+                <span>Login</span>
+            </div>
+        </button>
+        <!-- <form [formGroup]='changeImageForm' (submit)="onChangeProfileImage()">
+            <input type="file" #filePicker (change)="onPickedImage($event)">
+            <button mat-menu-item *ngIf="isLogin" (click)="filePicker.click()">
+                <div class="btn-wrapper">
+                    <img src="https://img.icons8.com/officel/100/000000/change-user-female.png" />
+                    <span>Change profile image</span>
+                </div>
+            </button>
+            <button mat-raised-button class="submit-btn" type="submit">Confirm</button>
+        </form> -->
+        <button mat-menu-item (click)="authService.logout()" *ngIf="isLogin">
+            <div class="btn-wrapper">
+                <img src="https://img.icons8.com/officel/100/000000/shutdown.png" />
+                <span [style.color]='"red"'>Logout</span>
+            </div>
+        </button>
+    </mat-menu>
+</mat-toolbar>

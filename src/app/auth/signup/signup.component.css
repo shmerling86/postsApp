@@ -1,0 +1,38 @@
+mat-card {
+    width: 20em;
+    margin: 1em auto;
+}
+
+p {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-dialog-actions {
+    justify-content: center;
+}
+
+.image-preview {
+    height: 10em;
+    width: 10em;
+    margin: 1em auto;
+}
+
+.image-preview img {
+    height: 100%;
+    width: 100%;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+@media (max-width: 415px) {
+    mat-card {
+        width: 85%;
+    }
+}

@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]='addForm' (ngSubmit)="onSave()">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput type="title" formControlName="title" autocomplete>
+                <p *ngIf="!addForm.get('title').valid && addForm.get('title').touched">
+                    <mat-error *ngIf="addForm.get('title').errors['required']">Title is required</mat-error>
+                    <mat-error *ngIf="addForm.get('title').errors['minlength'] ||
+                    addForm.get('title').errors['maxlength']">
+                    Title must be 3 to 20 characters long</mat-error>
+                </p>
+            </mat-form-field>
+            <div>
+                <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+                <input type="file" #filePicker (change)="onImagePicked($event)">
+            </div>
+            <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && addForm.get('image').valid">
+                <img [src]="imagePreview" [alt]="addForm.value.title">
+            </div>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input matInput type="description" formControlName="description" autocomplete>
+                <p *ngIf="!addForm.get('description').valid && addForm.get('description').touched">
+                    <mat-error *ngIf="addForm.get('description').errors['required']">Description is required</mat-error>
+                    <mat-error *ngIf="addForm.get('description').errors['minlength'] ||
+                    addForm.get('description').errors['maxlength']">
+                    Description must be 3 to 20 characters long</mat-error>
+                </p>
+            </mat-form-field>
+            <p *ngIf='post && !post.lastModified && post.date'>Create: {{  post.date | date : 'short' }} </p>
+            <p *ngIf='post && post.lastModified'>Update: {{  post.lastModified | date : 'short' }}</p>
+            <div mat-dialog-actions>
+                <button mat-raised-button class="submit-btn" type="submit">Save</button>
+                <button mat-button mat-dialog-close>Cancel</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

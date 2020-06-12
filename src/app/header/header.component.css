@@ -1,0 +1,110 @@
+mat-toolbar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+.mat-toolbar.mat-primary {
+    background: rgb(249, 186, 57);
+    color: #fff;
+}
+
+hr {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn {
+    margin: auto;
+    width: 40%;
+}
+
+.tab-wrapper span {
+    display: flex;
+}
+
+.tab-wrapper {
+    text-decoration: none;
+}
+
+.tab-wrapper img {
+    width: 2em;
+    height: 2em;
+    margin-right: 0.6em;
+}
+
+.tab-inside-wrapper span {
+    font-size: 1.2em;
+    color: white;
+}
+
+.background-menu {
+    height: 6em;
+    width: 14em;
+    background-image: url("../../assets/images/495078-PHE69C-919.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10em 7em;
+}
+
+.welcome {
+    padding: 1em;
+}
+
+.toolbar-btns {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user {
+    display: flex;
+}
+
+.user img {
+    width: 2em;
+    height: 2em;
+    margin: auto 0.5em auto 0;
+    border-radius: 50%;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-wrapper img {
+    height: 1.7em;
+    width: 1.7em;
+    padding: 0.7em;
+}
+
+
+@media (max-width: 415px) {
+    .nav-btn {
+        width: 90%;
+    }
+
+    .tab-inside-wrapper span {
+        display: none;
+    }
+
+    .tab-wrapper img {
+        width: 1.7em;
+        height: 1.7em;
+    }
+
+    .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+        display: none;
+    }
+
+    .mat-tab-group {
+        justify-content: center;
+    }
+
+    .user span {
+        display: none;
+    }
+
+}

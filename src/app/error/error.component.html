@@ -1,0 +1,11 @@
+<mat-dialog-content *ngIf="data.message; else autoErr">
+  {{ data.message }}
+</mat-dialog-content>
+<mat-dialog-content >
+  <ng-template #autoErr>
+    <p>Unknown error occurred </p>
+  </ng-template>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Thanks</button>
+</mat-dialog-actions>
